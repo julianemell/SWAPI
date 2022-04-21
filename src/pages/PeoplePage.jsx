@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import SWAPI from '../services/SWAPI'
-
+import PeopleOverview from '../components/PeopleOverview'
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([])
@@ -12,17 +12,20 @@ const PeoplePage = () => {
 
 	useEffect(() => {
 		getPeople()
-	}, [people])
+	}, [])
 
 
 	return (
 		<>
 			<h2>People</h2>
-			<ol>
-				{people.map((person, index) => (
-					<li key={index}>{person.name}</li>
+			<div className="peopleoverview">
+				{people.map((person) => (
+					<div>
+						<PeopleOverview person={person}/>
+						{/* <li key={index}>{person.name}</li> */}
+					</div>
 				))}
-			</ol>
+			</div>
 		</>
 	)
 }

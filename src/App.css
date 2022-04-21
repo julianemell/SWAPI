@@ -6,3 +6,39 @@ body {
 #App {
 	color: black;
 }
+
+h2 {
+	font-size: small;
+}
+
+p {
+	font-size: smaller;
+}
+
+.peopleoverview {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 90%;
+}
+
+.peopleoverview div {
+	padding: 2%;
+	margin: 2%;
+	width: 45%;
+	height: 250px;
+	background-color: rgb(236, 210, 136);
+}
+
+.btn-people {
+	background-color: saddlebrown;
+	width: 95%;
+	padding: 1%;
+	border: none;
+	color: goldenrod;
+}
+
+.btn-people:hover {
+	background-color: rgba(139, 69, 19, 0.815);
+}
