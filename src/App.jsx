@@ -1,11 +1,11 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css'
 import { Routes, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation';
 import Container from 'react-bootstrap/Container'
 import FilmsPage from './pages/FilmsPage'
-
+import HomePage from './pages/HomePage'
+import 'bootstrap/dist/css/bootstrap.css'
+import './App.css';
 
 const App = () => {
 	return (

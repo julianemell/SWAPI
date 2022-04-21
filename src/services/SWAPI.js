@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://swapi.dev/api/'
+const BASE_URL = 'https://swapi.dev/api'
 
 //GET all films
 const getFilms = async () => {
@@ -26,7 +26,8 @@ const getPerson = async (id) => {
 	return res.data
 }
 
-export {
+// eslint-disable-next-line
+export default {
 	getFilms,
 	getPeople,
 	getFilm,
