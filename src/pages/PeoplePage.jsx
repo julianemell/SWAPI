@@ -18,13 +18,16 @@ const PeoplePage = () => {
 	return (
 		<>
 			<h2>People</h2>
-			<div className="peopleoverview">
+			<div className="overview">
 				{people.map((person) => (
 					<div>
 						<PeopleOverview person={person}/>
 						{/* <li key={index}>{person.name}</li> */}
 					</div>
 				))}
+			</div>
+			<div>
+				Paginering
 			</div>
 		</>
 	)

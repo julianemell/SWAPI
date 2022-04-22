@@ -26,7 +26,7 @@ const getPerson = async (id) => {
 	return res.data
 }
 
-// eslint-disable-next-line
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	getFilms,
 	getPeople,

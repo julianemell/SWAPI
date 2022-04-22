@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import SWAPI from '../services/SWAPI'
+import FilmOverview from '../components/FilmOverview'
 
 const FilmsPage = () => {
 	const [films, setFilms] = useState([])
+	const [page, setPage] = useState(1)
 	
 	const getFilms = async () => {
 		const data = await SWAPI.getFilms()
@@ -11,17 +13,35 @@ const FilmsPage = () => {
 
 	useEffect(() => {
 		getFilms()
-	}, [films])
+	}, [])
 
 
 	return (
 		<>
 			<h2>Films</h2>
-			<ol>
+			<div className="overview">
 				{films.map(film => (
-					<li key={film.episode_id}>{film.title}</li>
+					<div>
+						<FilmOverview film={film}/>
+					</div>
 				))}
-			</ol>
+			</div>
+			<div>
+				<div>
+					<Button
+					disabled={films.page === null}
+					onClick={()=> setPage(prevValue => prevValue - 1) }
+					>Previous</Button>
+				</div>
+				<div>{page}</div>
+				<div>
+				<Button
+				disabled={page + 1 >= films.nbPages}
+					onClick={()=> setPage(prevValue => prevValue + 1) }
+					>Previous</Button>
+				</div>
+			</div>
+
 		</>
 	)
 }

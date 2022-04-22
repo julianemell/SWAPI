@@ -15,7 +15,7 @@ p {
 	font-size: smaller;
 }
 
-.peopleoverview {
+.overview {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -23,7 +23,7 @@ p {
 	width: 90%;
 }
 
-.peopleoverview div {
+.overview div {
 	padding: 2%;
 	margin: 2%;
 	width: 45%;
