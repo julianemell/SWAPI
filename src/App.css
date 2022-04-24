@@ -9,6 +9,8 @@ body {
 
 h2 {
 	font-size: small;
+	text-align: center;
+	margin-top: 5%;
 }
 
 p {
@@ -21,6 +23,7 @@ p {
 	align-items: center;
 	flex-wrap: wrap;
 	width: 90%;
+	margin: auto;
 }
 
 .overview div {
@@ -31,7 +34,7 @@ p {
 	background-color: rgb(236, 210, 136);
 }
 
-.btn-people {
+.btn-brown {
 	background-color: saddlebrown;
 	width: 95%;
 	padding: 1%;
@@ -39,6 +42,19 @@ p {
 	color: goldenrod;
 }
 
-.btn-people:hover {
+.btn-brown:hover {
 	background-color: rgba(139, 69, 19, 0.815);
+}
+
+.prev-next-btns {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 95%;
+	margin: auto;
+}
+
+.pagenumber {
+	width: 50%;
+	text-align: center;
 }

@@ -13,7 +13,7 @@ const FilmOverview = ({ film }) => {
 			<ul>
 				<li>This film involves {film.planets.length} planets</li>
 			</ul>
-			<Button className="btn-people" as={Link} to={`/films/${id}`} key={id}>Read more</Button>
+			<Button className="btn-brown" as={Link} to={`/films/${id}`} key={id}>Read more</Button>
 		</>
 	)
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import SWAPI from '../services/SWAPI'
 import FilmOverview from '../components/FilmOverview'
+import Button from 'react-bootstrap/Button'
+
 
 const FilmsPage = () => {
 	const [films, setFilms] = useState([])
@@ -26,20 +28,22 @@ const FilmsPage = () => {
 					</div>
 				))}
 			</div>
-			<div>
-				<div>
+			<div className="prev-next-btns">
+				
 					<Button
 					disabled={films.page === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
+					className="btn-brown"
 					>Previous</Button>
-				</div>
-				<div>{page}</div>
-				<div>
+				
+				<div className="pagenumber">{page}</div>
+				
 				<Button
-				disabled={page + 1 >= films.nbPages}
+					disabled={page + 1 >= films.nbPages}
 					onClick={()=> setPage(prevValue => prevValue + 1) }
-					>Previous</Button>
-				</div>
+					className="btn-brown"
+					>Next</Button>
+				
 			</div>
 
 		</>
