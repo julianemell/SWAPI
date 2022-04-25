@@ -32,11 +32,10 @@ const PeopleInfo = () => {
 				<li><strong>Height: </strong>{person.height} cm</li>
 				<li><strong>Weight: </strong>{person.weight} kg</li>
 				<li><strong>Hair colour: </strong>{person.hair_color}</li>
-				<li><strong>Skin colour: </strong>{person.skin_color} cm</li>
-				<li><strong>Skin colour: </strong>{person.skin_color} cm</li>
-				<li><strong>Eye colour: </strong>{person.eye_color} cm</li>
+				<li><strong>Skin colour: </strong>{person.skin_color}</li>
+				<li><strong>Eye colour: </strong>{person.eye_color}</li>
 				<li><strong>Born in: </strong>year {person.birth_year}</li>
-				<li><strong>Gender: </strong>year {person.gender}</li>
+				<li><strong>Gender: </strong>{person.gender}</li>
 			</ul>
 
 			<h2>Films {person.name} is in:</h2>
