@@ -1,18 +1,24 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import SWAPI from '../services/SWAPI'
-import {getIdFromUrl} from '../helpers/getID'
+import { getIdFromUrl } from '../helpers/getID'
+import { Link } from 'react-router-dom'
 
 
-const PeopleInfo = ({person}) => {
-	const [personn, setPersonn] = useState()
-	//const { id } = useParams()
-	const id = getIdFromUrl(person.url)
+const PeopleInfo = () => {
+	const [person, setPerson] = useState([])
+	const [films, setFilms] = useState([])
+	const { id } = useParams()
+	
+	console.log("id:", id)
+	console.log("person:", person)
+
 	
 	const getPerson = async () => {
 		const data = await SWAPI.getPerson(id)
-		setPersonn(data.results)
-		console.log(data.results)
+		setPerson(data)
+		setFilms(data.films)
+		console.log(data)
 	}
 
 	useEffect(() => {
@@ -21,7 +27,26 @@ const PeopleInfo = ({person}) => {
 
 	return (
 		<div>
-			<h2>{id}</h2>
+			<h2>{person.name}</h2>
+			<ul>
+				<li><strong>Height: </strong>{person.height} cm</li>
+				<li><strong>Weight: </strong>{person.weight} kg</li>
+				<li><strong>Hair colour: </strong>{person.hair_color}</li>
+				<li><strong>Skin colour: </strong>{person.skin_color} cm</li>
+				<li><strong>Skin colour: </strong>{person.skin_color} cm</li>
+				<li><strong>Eye colour: </strong>{person.eye_color} cm</li>
+				<li><strong>Born in: </strong>year {person.birth_year}</li>
+				<li><strong>Gender: </strong>year {person.gender}</li>
+			</ul>
+
+			<h2>Films {person.name} is in:</h2>
+			<ul>
+				{films.map(film => (
+					<Link to={`/films/${getIdFromUrl(film)}`}>
+						<li>Film {getIdFromUrl(film)}</li>
+					</Link>
+				))}
+			</ul>
 			
 		</div>
 	)
