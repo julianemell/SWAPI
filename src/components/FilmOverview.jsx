@@ -1,11 +1,9 @@
-import Button from 'react-bootstrap/Button'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { getIdFromUrl } from '../helpers/getID'
 
 
 const FilmOverview = ({ film }) => {
-	const { id } = useParams()
-	
-	console.log("id?",id)
+	const id = getIdFromUrl(film.url)
 
 	return (
 		<>
@@ -13,7 +11,9 @@ const FilmOverview = ({ film }) => {
 			<ul>
 				<li>This film involves {film.planets.length} planets</li>
 			</ul>
-			<Button className="btn-brown" as={Link} to={`/films/${id}`} key={id}>Read more</Button>
+			
+			<Link className="btn-brown" film={film} to={`/films/${id}`}>Read more</Link>
+
 		</>
 	)
 }

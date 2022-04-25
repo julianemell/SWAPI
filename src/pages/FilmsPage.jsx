@@ -30,7 +30,7 @@ const FilmsPage = () => {
 			</div>
 			<div className="prev-next-btns">
 				
-					<Button
+				<Button
 					disabled={films.page === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
 					className="btn-brown"

@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+
 import SWAPI from '../services/SWAPI'
 import { getIdFromUrl } from '../helpers/getID'
-import { Link } from 'react-router-dom'
 
 
 const PeopleInfo = () => {
@@ -18,7 +19,6 @@ const PeopleInfo = () => {
 		const data = await SWAPI.getPerson(id)
 		setPerson(data)
 		setFilms(data.films)
-		console.log(data)
 	}
 
 	useEffect(() => {
@@ -30,7 +30,7 @@ const PeopleInfo = () => {
 			<h2>{person.name}</h2>
 			<ul>
 				<li><strong>Height: </strong>{person.height} cm</li>
-				<li><strong>Weight: </strong>{person.weight} kg</li>
+				<li><strong>Weight: </strong>{person.mass} kg</li>
 				<li><strong>Hair colour: </strong>{person.hair_color}</li>
 				<li><strong>Skin colour: </strong>{person.skin_color}</li>
 				<li><strong>Eye colour: </strong>{person.eye_color}</li>
