@@ -2,31 +2,28 @@ import { useState, useEffect } from 'react'
 import SWAPI from '../services/SWAPI'
 import PeopleOverview from '../components/PeopleOverview'
 import Button from 'react-bootstrap/Button'
-import { getIdFromUrl } from '../helpers/getID'
-
+import { useSearchParams } from 'react-router-dom'
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([])
 	const [page, setPage] = useState(1)
 	const [nextPage, setNextPage] = useState()
 	const [previousPage, setPreviousPage] = useState()
+	const [pageParams, setPageParams] = useSearchParams()
 
-	//const [totalPages, setTotalPages] = useState(0)
-	console.log(page)
+	const queryPage = pageParams.get('page')
 	
 	const getPeople = async (page = 1) => {
 		const data = await SWAPI.getPeople(page)
 		setPeople(data.results)
 		setNextPage(data.next)
 		setPreviousPage(data.previous)
-
 		setPage(page)
-		//setTotalPages(Math.ceil(data.count / 10))
+		setPageParams({ page: page })
 	}
 
 	useEffect(() => {
 		getPeople()
-
 	}, [])
 
 	useEffect (() => {

@@ -46,6 +46,10 @@ p {
 	background-color: rgba(139, 69, 19, 0.815);
 }
 
+.btn-brown:disabled {
+	background-color: rgb(200, 25, 54);
+}
+
 .prev-next-btns {
 	display: flex;
 	justify-content: space-between;
