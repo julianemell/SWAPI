@@ -11,6 +11,7 @@ const FilmsPage = () => {
 	const getFilms = async () => {
 		const data = await SWAPI.getFilms()
 		setFilms(data.results)
+		
 	}
 
 	useEffect(() => {

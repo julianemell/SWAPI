@@ -44,7 +44,6 @@ const FilmInfo = () => {
 					</Link>
 				))}
 			</ul>
-			
 		</div>
 	)
 }

@@ -15,8 +15,8 @@ const getFilm = async (id) => {
 }
 
 //GET all people
-const getPeople = async () => {
-	const res = await axios.get('https://swapi.dev/api/people')
+const getPeople = async (page) => {
+	const res = await axios.get(`${BASE_URL}/people/?page=${page}`)
 	return res.data
 }
 
