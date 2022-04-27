@@ -21,7 +21,7 @@ const FilmsPage = () => {
 
 	return (
 		<>
-			<h2>Films</h2>
+			<h2>Star wars films</h2>
 			<div className="overview">
 				{films.map(film => (
 					<div>

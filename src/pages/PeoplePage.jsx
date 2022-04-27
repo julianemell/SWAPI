@@ -33,7 +33,7 @@ const PeoplePage = () => {
 
 	return (
 		<>
-			<h2>People</h2>
+			<h2>Star Wars characters</h2>
 			<div className="overview">
 				{people.map((person) => (
 					<div>
@@ -47,7 +47,7 @@ const PeoplePage = () => {
 					disabled={previousPage === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
 					className="btn-brown"
-					>Previous</Button>
+				>Previous</Button>
 				
 				<div className="pagenumber">{page}</div>
 				
@@ -55,7 +55,7 @@ const PeoplePage = () => {
 					disabled={nextPage === null}
 					onClick={()=> setPage(prevValue => prevValue + 1) }
 					className="btn-brown"
-					>Next</Button>
+				>Next</Button>
 				
 			</div>
 		</>
