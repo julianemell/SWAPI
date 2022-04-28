@@ -28,6 +28,8 @@ const PeoplePage = () => {
 
 	useEffect (() => {
 		getPeople(page)
+		
+		
 	}, [page])
 
 
