@@ -7,10 +7,26 @@ import Button from 'react-bootstrap/Button'
 const FilmsPage = () => {
 	const [films, setFilms] = useState([])
 	const [page, setPage] = useState(1)
+
+	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState(null)
+	const [isError, setIsError] = useState(false)
 	
 	const getFilms = async () => {
-		const data = await SWAPI.getFilms()
-		setFilms(data.results)
+		setLoading(true)
+		try {
+			const data = await SWAPI.getFilms()
+			setFilms(data.results)
+
+			//ta bort tidigare fel
+			setIsError(false)
+			setError(null)
+		} catch (err) {
+			setError(err)
+			setIsError(true)
+		} finally {
+			setLoading(false)
+		}
 		
 	}
 
@@ -23,6 +39,13 @@ const FilmsPage = () => {
 		<>
 			<h2>Star wars films</h2>
 			<div className="overview">
+				{isError && (
+					<p>Sorry could not fetch the films: {error.message}</p>
+				)}
+
+				{loading && (
+					<p>Loading...</p>
+				)}
 				{films.map(film => (
 					<div>
 						<FilmOverview film={film} key={film.episode_id}/>
