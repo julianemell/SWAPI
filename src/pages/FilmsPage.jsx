@@ -25,7 +25,7 @@ const FilmsPage = () => {
 			<div className="overview">
 				{films.map(film => (
 					<div>
-						<FilmOverview film={film}/>
+						<FilmOverview film={film} key={film.episode_id}/>
 					</div>
 				))}
 			</div>

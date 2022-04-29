@@ -38,8 +38,8 @@ const FilmInfo = () => {
 
 			<h2>Characters that appear in {film.title}:</h2>
 			<ul>
-				{characters.map(character => (
-					<Link to={`/people/${getIdFromUrl(character)}`}>
+				{characters.map((character, index) => (
+					<Link to={`/people/${getIdFromUrl(character)}`} key={index}>
 						<li>Character {getIdFromUrl(character)}</li>
 					</Link>
 				))}

@@ -41,7 +41,7 @@ const PeopleInfo = () => {
 			<h2>Films {person.name} is in:</h2>
 			<ul>
 				{films.map(film => (
-					<Link to={`/films/${getIdFromUrl(film)}`}>
+					<Link to={`/films/${getIdFromUrl(film)}`} key={getIdFromUrl(film)}>
 						<li>Film {getIdFromUrl(film)}</li>
 					</Link>
 				))}

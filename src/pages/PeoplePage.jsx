@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import SWAPI from '../services/SWAPI'
 import PeopleOverview from '../components/PeopleOverview'
 import Button from 'react-bootstrap/Button'
@@ -11,16 +11,32 @@ const PeoplePage = () => {
 	const [previousPage, setPreviousPage] = useState()
 	const [pageParams, setPageParams] = useSearchParams()
 
-	const queryPage = pageParams.get('page')
+	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState(null)
+	const [isError, setIsError] = useState(false)
+
+	/* const queryPage = pageParams.get('page') */
 	
-	const getPeople = async (page = 1) => {
-		const data = await SWAPI.getPeople(page)
-		setPeople(data.results)
-		setNextPage(data.next)
-		setPreviousPage(data.previous)
-		setPage(page)
-		setPageParams({ page: page })
-	}
+	const getPeople = useCallback(async (page = 1) => {
+		setLoading(true)
+		try {
+			const data = await SWAPI.getPeople(page)
+			setPeople(data.results)
+			setNextPage(data.next)
+			setPreviousPage(data.previous)
+			setPage(page)
+			setPageParams({ page: page })
+
+			//ta bort tidigare fel
+			setIsError(false)
+			setError(null)
+		} catch (err) {
+			setError(err)
+			setIsError(true)
+		} finally {
+			setLoading(false)
+		}
+	}, [page])
 
 	useEffect(() => {
 		getPeople()
@@ -29,20 +45,27 @@ const PeoplePage = () => {
 	useEffect (() => {
 		getPeople(page)
 		
-		
 	}, [page])
-
 
 	return (
 		<>
 			<h2>Star Wars characters</h2>
 			<div className="overview">
-				{people.map((person) => (
-					<div>
-						<PeopleOverview person={person}/>
-						{/* <li key={index}>{person.name}</li> */}
-					</div>
-				))}
+				{isError && (
+					<p>Sorry could not fetch the people: {error.message}</p>
+				)}
+
+				{loading && (
+					<p>Loading...</p>
+				)}
+
+				{people && !loading && (
+					people.map((person, index) => (
+						<div>
+							<PeopleOverview person={person} key={index}/>
+						</div>
+					))
+				)}
 			</div>
 			<div className="prev-next-btns">
 				<Button
