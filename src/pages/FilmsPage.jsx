@@ -36,7 +36,7 @@ const FilmsPage = () => {
 
 	return (
 		<>
-			<h2>Star wars films</h2>
+			<h1>Star wars films</h1>
 			<div className="overview">
 				{isError && (
 					<p>Sorry could not fetch the films: {error.message}</p>

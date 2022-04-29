@@ -7,10 +7,15 @@ body {
 	color: rgb(0, 22, 22);
 }
 
-h2 {
-	font-size: small;
+h1 {
 	text-align: center;
-	margin-top: 5%;
+	margin: 5% 0;
+}
+
+h2 {
+	text-align: center;
+	margin: 2% 0;
+	font-size: medium;
 }
 
 p {
@@ -22,7 +27,6 @@ p {
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
-	width: 90%;
 	margin: auto;
 }
 
@@ -76,6 +80,9 @@ p {
 	align-items: center;
 	width: 95%;
 	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+
 }
 
 .pagenumber {

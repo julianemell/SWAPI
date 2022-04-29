@@ -46,7 +46,7 @@ const PeoplePage = () => {
 
 	return (
 		<>
-			<h2>Star Wars characters</h2>
+			<h1>Star Wars characters</h1>
 			<div className="overview">
 				{isError && (
 					<p>Sorry could not fetch the people: {error.message}</p>
