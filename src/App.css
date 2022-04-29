@@ -1,10 +1,10 @@
 body {
-	background-color: goldenrod;
-	font-family: 'Courier New', Courier, monospace;
+	background-color: rgb(187, 157, 127);
+	font-family: 'Space Grotesk', sans-serif;
 }
 
 #App {
-	color: black;
+	color: rgb(0, 22, 22);
 }
 
 h2 {
@@ -27,27 +27,47 @@ p {
 }
 
 .overview div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	padding: 2%;
 	margin: 2%;
 	width: 45%;
 	height: 250px;
-	background-color: rgb(236, 210, 136);
+	background-color: rgb(165, 124, 87);
+	border-radius: 30px;
 }
 
-.btn-brown {
-	background-color: saddlebrown;
+.link {
+	padding: 1%;
+	border: none;
+	color: rgb(114, 53, 34);
+	text-decoration: none;
+	text-align: center;
+}
+
+.link:hover {
+	color: rgb(141, 25, 25);
+}
+
+.btn {
+	background-color: rgb(104, 18, 18);
 	width: 95%;
 	padding: 1%;
 	border: none;
 	color: goldenrod;
 }
 
-.btn-brown:hover {
-	background-color: rgba(139, 69, 19, 0.815);
+.btn:hover {
+	background-color: rgb(187, 0, 31);
+	color: black;
 }
 
-.btn-brown:disabled {
-	background-color: rgb(200, 25, 54);
+.btn:disabled {
+	background-color: rgb(104, 18, 18);
+	color: black;
+	opacity: 0.8;
 }
 
 .prev-next-btns {

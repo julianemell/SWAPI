@@ -1,12 +1,8 @@
-//import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import {getIdFromUrl} from '../helpers/getID'
 
-
 const PeopleOverview = ({ person }) => {
-	//const { id } = useParams()
 	const id = getIdFromUrl(person.url)
-
 
 	return (
 		<>
@@ -15,7 +11,7 @@ const PeopleOverview = ({ person }) => {
 				<li>Belongs to {person.starships.length} starships</li>
 				<li>Has beautiful {person.eye_color} eyes and {person.skin_color} skin</li>
 			</ul>
-			<Link className="btn-brown" person={person} to={`/people/${id}`}>Read more about {person.name}</Link>
+			<Link className="link" person={person} to={`/people/${id}`}>Read more about {person.name}</Link>
 		</>
 	)
 }

@@ -7,12 +7,12 @@ const FilmOverview = ({ film }) => {
 
 	return (
 		<>
-			<h2>{film.title}{film.episode_id}</h2>
+			<h2>{film.title}</h2>
 			<ul>
 				<li>This film involves {film.planets.length} planets</li>
 			</ul>
 			
-			<Link className="btn-brown" film={film} to={`/films/${id}`}>Read more</Link>
+			<Link className="link" film={film} to={`/films/${id}`}>Find out more</Link>
 
 		</>
 	)

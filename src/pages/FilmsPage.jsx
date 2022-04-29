@@ -56,7 +56,7 @@ const FilmsPage = () => {
 				<Button
 					disabled={films.page === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
-					className="btn-brown"
+					className="btn"
 					>Previous</Button>
 				
 				<div className="pagenumber">{page}</div>
@@ -64,7 +64,7 @@ const FilmsPage = () => {
 				<Button
 					disabled={page + 1 >= films.nbPages}
 					onClick={()=> setPage(prevValue => prevValue + 1) }
-					className="btn-brown"
+					className="btn"
 					>Next</Button>
 				
 			</div>

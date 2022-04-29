@@ -68,7 +68,7 @@ const PeoplePage = () => {
 				<Button
 					disabled={previousPage === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
-					className="btn-brown"
+					className="btn"
 				>Previous</Button>
 				
 				<div className="pagenumber">{page}</div>
@@ -76,7 +76,7 @@ const PeoplePage = () => {
 				<Button
 					disabled={nextPage === null}
 					onClick={()=> setPage(prevValue => prevValue + 1) }
-					className="btn-brown"
+					className="btn"
 				>Next</Button>
 				
 			</div>
