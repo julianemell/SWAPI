@@ -1,21 +1,23 @@
 import { useCallback, useState, useEffect } from 'react'
-import SWAPI from '../services/SWAPI'
-import PeopleOverview from '../components/PeopleOverview'
 import Button from 'react-bootstrap/Button'
-import { useSearchParams } from 'react-router-dom'
+
+import SWAPI from '../services/SWAPI'
+import {getIdFromUrl} from '../helpers/getID'
+import PeopleOverview from '../components/PeopleOverview'
+//import { useSearchParams } from 'react-router-dom'
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([])
 	const [page, setPage] = useState(1)
 	const [nextPage, setNextPage] = useState()
 	const [previousPage, setPreviousPage] = useState()
-	const [pageParams, setPageParams] = useSearchParams()
+	/* const [pageParams, setPageParams] = useSearchParams() */
 
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [isError, setIsError] = useState(false)
-
-	/* const queryPage = pageParams.get('page') */
+	
+	/* pageParams.get('page') */
 	
 	const getPeople = useCallback(async (page = 1) => {
 		setLoading(true)
@@ -25,9 +27,8 @@ const PeoplePage = () => {
 			setNextPage(data.next)
 			setPreviousPage(data.previous)
 			setPage(page)
-			setPageParams({ page: page })
+			/* setPageParams({ page: page }) */
 
-			//ta bort tidigare fel
 			setIsError(false)
 			setError(null)
 		} catch (err) {
@@ -36,16 +37,12 @@ const PeoplePage = () => {
 		} finally {
 			setLoading(false)
 		}
-	}, [page])
-
-	useEffect(() => {
-		getPeople()
 	}, [])
 
 	useEffect (() => {
 		getPeople(page)
 		
-	}, [page])
+	}, [page, getPeople])
 
 	return (
 		<>
@@ -60,9 +57,9 @@ const PeoplePage = () => {
 				)}
 
 				{people && !loading && (
-					people.map((person, index) => (
+					people.map((person) => (
 						<div>
-							<PeopleOverview person={person} key={index}/>
+							<PeopleOverview person={person} key={getIdFromUrl(person.url)}/>
 						</div>
 					))
 				)}

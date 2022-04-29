@@ -1,5 +1,4 @@
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import SWAPI from '../services/SWAPI'
@@ -11,17 +10,12 @@ const PeopleInfo = () => {
 	const [films, setFilms] = useState([])
 	const { id } = useParams()
 	
-	console.log("id:", id)
-	console.log("person:", person)
-
-	
-	const getPerson = async () => {
-		const data = await SWAPI.getPerson(id)
-		setPerson(data)
-		setFilms(data.films)
-	}
-
 	useEffect(() => {
+		const getPerson = async () => {
+			const data = await SWAPI.getPerson(id)
+			setPerson(data)
+			setFilms(data.films)
+		}
 		getPerson(id)
 	}, [id])
 

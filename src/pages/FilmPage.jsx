@@ -1,6 +1,5 @@
 import FilmInfo from "../components/FilmInfo"
 
-
 const FilmPage = () => {
 	return (
 		<div>

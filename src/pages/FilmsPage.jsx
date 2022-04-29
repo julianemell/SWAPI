@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import SWAPI from '../services/SWAPI'
 import FilmOverview from '../components/FilmOverview'
 import Button from 'react-bootstrap/Button'
-
+//import {getIdFromUrl} from '../helpers/getID'
 
 const FilmsPage = () => {
 	const [films, setFilms] = useState([])
 	const [page, setPage] = useState(1)
-
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [isError, setIsError] = useState(false)
@@ -46,7 +45,7 @@ const FilmsPage = () => {
 				{loading && (
 					<p>Loading...</p>
 				)}
-				{films.map(film => (
+				{films.map((film) => (
 					<div>
 						<FilmOverview film={film} key={film.episode_id}/>
 					</div>

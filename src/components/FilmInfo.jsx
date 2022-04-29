@@ -10,19 +10,14 @@ const FilmInfo = () => {
 	const [film, setFilm] = useState([])
 	const [characters, setCharacters] = useState([])
 	const { id } = useParams()
-	
-	console.log("id:", id)
-	console.log("film:", film)
-
-	
-	const getFilm = async () => {
-		const data = await SWAPI.getFilm(id)
-		setFilm(data)
-		setCharacters(data.characters)
-	}
 
 	useEffect(() => {
-		getFilm(id)
+		const getFilm = async () => {
+			const data = await SWAPI.getFilm(id)
+			setFilm(data)
+			setCharacters(data.characters)
+		}
+		getFilm()
 	}, [id])
 
 	return (
