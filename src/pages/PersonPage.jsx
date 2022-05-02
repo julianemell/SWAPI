@@ -1,10 +1,9 @@
 import PeopleInfo from "../components/PeopleInfo"
 
-
-const PersonPage = () => {
+const PersonPage = ({ person }) => {
 	return (
 		<div>
-			<PeopleInfo />
+			<PeopleInfo person={person} />
 		</div>
 	)
 }

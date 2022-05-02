@@ -11,7 +11,11 @@ const PeopleOverview = ({ person }) => {
 				<li>Belongs to {person.starships.length} starships</li>
 				<li>Has beautiful {person.eye_color} eyes and {person.skin_color} skin</li>
 			</ul>
-			<Link className="link" person={person} to={`/people/${id}`}>Read more about {person.name}</Link>
+			<Link 
+				className="link" 
+				person={person} 
+				to={`/people/${id}`}
+			>Read more about {person.name}</Link>
 		</>
 	)
 }
