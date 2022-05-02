@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import SWAPI from '../services/SWAPI'
 import { getIdFromUrl } from '../helpers/getID'
 
-
 const PeopleInfo = () => {
 	const [person, setPerson] = useState([])
 	const [films, setFilms] = useState([])
@@ -13,7 +12,6 @@ const PeopleInfo = () => {
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [isError, setIsError] = useState(false)
-
 	
 	useEffect(() => {
 		const getPerson = async () => {
