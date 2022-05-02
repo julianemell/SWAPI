@@ -7,6 +7,9 @@ import Button from 'react-bootstrap/Button'
 const FilmsPage = () => {
 	const [films, setFilms] = useState([])
 	const [page, setPage] = useState(1)
+	const [nextPage, setNextPage] = useState()
+	const [previousPage, setPreviousPage] = useState()
+
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [isError, setIsError] = useState(false)
@@ -16,6 +19,8 @@ const FilmsPage = () => {
 		try {
 			const data = await SWAPI.getFilms()
 			setFilms(data.results)
+			setNextPage(data.next)
+			setPreviousPage(data.previous)
 
 			//ta bort tidigare fel
 			setIsError(false)
@@ -54,7 +59,7 @@ const FilmsPage = () => {
 			<div className="prev-next-btns">
 				
 				<Button
-					disabled={films.page === null}
+					disabled={previousPage === null}
 					onClick={()=> setPage(prevValue => prevValue - 1) }
 					className="btn"
 					>Previous</Button>
@@ -62,7 +67,7 @@ const FilmsPage = () => {
 				<div className="pagenumber">{page}</div>
 				
 				<Button
-					disabled={page + 1 >= films.nbPages}
+					disabled={nextPage === null}
 					onClick={()=> setPage(prevValue => prevValue + 1) }
 					className="btn"
 					>Next</Button>
