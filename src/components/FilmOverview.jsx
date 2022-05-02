@@ -9,7 +9,7 @@ const FilmOverview = ({ film }) => {
 		<>
 			<h2>{film.title}</h2>
 			<ul>
-				<li>This film involves {film.planets.length} planets</li>
+				<li>...This film involves {film.planets.length} planets and {film.starships.length} starships</li>
 			</ul>
 			
 			<Link className="link" film={film} to={`/films/${id}`}>Find out more</Link>

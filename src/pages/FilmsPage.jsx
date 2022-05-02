@@ -44,7 +44,7 @@ const FilmsPage = () => {
 
 	return (
 		<>
-			<h1>Star wars films</h1>
+			<h1>Star Wars films</h1>
 			<h2>There is a total of {count} films</h2>
 			<div className="overview">
 				{isError && (

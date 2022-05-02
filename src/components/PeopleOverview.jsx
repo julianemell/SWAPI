@@ -8,8 +8,8 @@ const PeopleOverview = ({ person }) => {
 		<>
 			<h2>{person.name}</h2>
 			<ul>
-				<li>Belongs to {person.starships.length} starships</li>
-				<li>Has beautiful {person.eye_color} eyes and {person.skin_color} skin</li>
+				<li>...Appears in {person.films.length} Star Wars movies</li>
+				<li>...Has beautiful {person.eye_color} eyes and {person.skin_color} skin</li>
 			</ul>
 			<Link 
 				className="link" 
