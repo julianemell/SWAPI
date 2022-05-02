@@ -45,7 +45,7 @@ const FilmInfo = () => {
 
 			{film && (
 				<div>
-				<h2>{film.title}</h2>
+				<h1>{film.title}</h1>
 				<ul>
 					<li><strong>Film in order: </strong>{film.episode_id}</li>
 					<li><strong>Opening crawl: </strong>{film.opening_crawl}</li>
@@ -58,7 +58,7 @@ const FilmInfo = () => {
 				<ul>
 					{characters.map((character, index) => (
 						<Link to={`/people/${getIdFromUrl(character)}`} key={index}>
-							<li>Character {getIdFromUrl(character)}</li>
+							<li className="link">Character {getIdFromUrl(character)}</li>
 						</Link>
 					))}
 				</ul>

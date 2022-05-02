@@ -83,11 +83,10 @@ li {
 	background-color: rgb(165, 124, 87);
 	border-radius: 30px;
 }
-
-.link {
+.link, ul a {
 	padding: 1%;
 	border: none;
-	color: rgb(0, 0, 0);
+	color: black;
 	
 	text-align: center;
 }
@@ -95,6 +94,10 @@ li {
 .link:hover {
 	color: goldenrod;
 	background-color: black;
+}
+
+ul a:hover {
+	color: goldenrod;
 }
 
 .btn {

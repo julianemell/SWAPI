@@ -44,7 +44,7 @@ const PeopleInfo = () => {
 
 			{person && (
 				<div>
-					<h2>{person.name}</h2>
+					<h1>{person.name}</h1>
 					<ul>
 						<li><strong>Height: </strong>{person.height} cm</li>
 						<li><strong>Weight: </strong>{person.mass} kg</li>
@@ -58,7 +58,7 @@ const PeopleInfo = () => {
 					<ul>
 						{films.map(film => (
 							<Link to={`/films/${getIdFromUrl(film)}`} key={getIdFromUrl(film)}>
-								<li>Film {getIdFromUrl(film)}</li>
+								<li className="link">Film {getIdFromUrl(film)}</li>
 							</Link>
 						))}
 					</ul>
