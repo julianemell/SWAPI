@@ -11,6 +11,7 @@ const PeoplePage = () => {
 	const [page, setPage] = useState(1)
 	const [nextPage, setNextPage] = useState()
 	const [previousPage, setPreviousPage] = useState()
+	const [count, setCount] = useState()
 	/* const [pageParams, setPageParams] = useSearchParams() */
 
 	const [loading, setLoading] = useState(false)
@@ -24,9 +25,10 @@ const PeoplePage = () => {
 		try {
 			const data = await SWAPI.getPeople(page)
 			setPeople(data.results)
+			setPage(page)
 			setNextPage(data.next)
 			setPreviousPage(data.previous)
-			setPage(page)
+			setCount(data.count)
 			/* setPageParams({ page: page }) */
 
 			setIsError(false)
@@ -47,6 +49,7 @@ const PeoplePage = () => {
 	return (
 		<>
 			<h1>Star Wars characters</h1>
+			<h2>There is a total of {count} characters</h2>
 			<div className="overview">
 				{isError && (
 					<p>Sorry could not fetch the people: {error.message}</p>

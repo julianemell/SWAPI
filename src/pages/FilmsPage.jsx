@@ -9,6 +9,8 @@ const FilmsPage = () => {
 	const [page, setPage] = useState(1)
 	const [nextPage, setNextPage] = useState()
 	const [previousPage, setPreviousPage] = useState()
+	const [count, setCount] = useState()
+
 
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
@@ -21,6 +23,7 @@ const FilmsPage = () => {
 			setFilms(data.results)
 			setNextPage(data.next)
 			setPreviousPage(data.previous)
+			setCount(data.count)
 
 			//ta bort tidigare fel
 			setIsError(false)
@@ -42,6 +45,7 @@ const FilmsPage = () => {
 	return (
 		<>
 			<h1>Star wars films</h1>
+			<h2>There is a total of {count} films</h2>
 			<div className="overview">
 				{isError && (
 					<p>Sorry could not fetch the films: {error.message}</p>
