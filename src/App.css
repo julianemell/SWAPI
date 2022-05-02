@@ -14,12 +14,16 @@ h1 {
 
 h2 {
 	text-align: center;
-	margin: 2% 0;
+	margin: 4% 0;
 	font-size: medium;
 }
 
 p {
 	font-size: smaller;
+}
+
+li {
+	list-style-type: none;
 }
 
 .nav {
@@ -31,8 +35,19 @@ p {
 	color: goldenrod;
 }
 
-li {
-	list-style-type: none;
+.home-container {
+	margin-top: 10%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.home-container a {
+	color: black;
+}
+
+.home-container a:hover {
+	color: goldenrod;
+	background-color: black;
 }
 
 .overview {
@@ -59,13 +74,14 @@ li {
 .link {
 	padding: 1%;
 	border: none;
-	color: rgb(114, 53, 34);
-	text-decoration: none;
+	color: rgb(0, 0, 0);
+	
 	text-align: center;
 }
 
 .link:hover {
-	color: rgb(141, 25, 25);
+	color: goldenrod;
+	background-color: black;
 }
 
 .btn {
